@@ -1,0 +1,430 @@
+@prefix : <http://www.semanticweb.org/linch/ontologies/2018/11/untitled-ontology-2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ssso: <http://www.semanticweb.org/linch/ontologies/2018/11/ssso#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/linch/ontologies/2018/11/ssso> a owl:Ontology .
+
+ssso:Alice a ssso:User,
+        owl:NamedIndividual ;
+    ssso:has <http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10001>,
+        ssso:BoardofDirectors,
+        ssso:SL-4 ;
+    ssso:isProvidedBy ssso:Iris_Authentication,
+        ssso:NFC_Authentication .
+
+ssso:Authenticate a owl:Class ;
+    rdfs:subClassOf ssso:Action .
+
+ssso:Bob a ssso:User,
+        owl:NamedIndividual ;
+    ssso:has <http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10002>,
+        ssso:BoardofDirectors,
+        ssso:SL-4 ;
+    ssso:isProvidedBy ssso:Face_Authentication,
+        ssso:NFC_Authentication .
+
+ssso:Camera a ssso:AV,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:CaptureVideo,
+        ssso:Face_Authentication,
+        ssso:Occupancy_Detection .
+
+ssso:Carol a ssso:User,
+        owl:NamedIndividual ;
+    ssso:has <http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10003>,
+        ssso:BoardofDirectors,
+        ssso:SL-4 ;
+    ssso:isProvidedBy ssso:Face_Authentication,
+        ssso:Password_Authentication .
+
+ssso:Compromised_SmartBoard a ssso:Threat,
+        owl:NamedIndividual ;
+    ssso:has ssso:TL-High ;
+    ssso:influences ssso:SmartBoard ;
+    ssso:is ssso:Template ;
+    ssso:isProvidedBy ssso:SmartBoard .
+
+ssso:CurrentSecurityLevel a owl:Class ;
+    ssso:has ssso:SL-0 ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:Dave a ssso:User,
+        owl:NamedIndividual ;
+    ssso:has <http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10004>,
+        ssso:BoardofDirectors,
+        ssso:SL-0 .
+
+ssso:Deprecated a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:Dimmable_Lights a ssso:Lighting,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:Light_Control,
+        ssso:Occupancy_Detection .
+
+ssso:Disable_SmartBoard a ssso:Disable,
+        owl:NamedIndividual ;
+    ssso:influences ssso:SmartBoard ;
+    ssso:isProvidedBy ssso:SmartBoard .
+
+ssso:Disabled a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:Eric a ssso:User,
+        owl:NamedIndividual ;
+    ssso:has <http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10005>,
+        ssso:BoardofDirectors,
+        ssso:SL-0 .
+
+ssso:False a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:FileServer a ssso:Network,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:ShareData,
+        ssso:StoreData .
+
+ssso:Location a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:Mitigated a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:Name a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:Phone a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:Phone_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:provides ssso:SL-1,
+        ssso:SL-2 .
+
+ssso:PreferredAuthentication a owl:Class ;
+    rdfs:subClassOf ssso:Preference .
+
+ssso:PreferredContermeasure a owl:Class ;
+    rdfs:subClassOf ssso:Preference .
+
+ssso:Projector a ssso:AV,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:PlayAudio,
+        ssso:PlayVideo .
+
+ssso:Request a owl:Class ;
+    rdfs:subClassOf ssso:Action .
+
+ssso:RoleofRoom a owl:Class ;
+    ssso:has ssso:Classified ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:SmartHome a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:SmartSpeaker a ssso:AV,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:NFC_Authentication,
+        ssso:PlayAudio,
+        ssso:Record,
+        ssso:Voice_Authentication .
+
+ssso:Switcher a ssso:Network,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled .
+
+ssso:TL-Low a ssso:ThreatLevel,
+        owl:NamedIndividual .
+
+ssso:TL-None a ssso:ThreatLevel,
+        owl:NamedIndividual .
+
+ssso:Thermostat a ssso:HVAC,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:Room_Temperature_Control .
+
+ssso:TimeStamp a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:True a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:Unexpected_Device_Connection a ssso:Threat,
+        owl:NamedIndividual ;
+    ssso:has ssso:TL-Mid ;
+    ssso:influences ssso:Router ;
+    ssso:is ssso:Template ;
+    ssso:isProvidedBy ssso:Router .
+
+ssso:Unexpected_Door_Open a ssso:Threat,
+        owl:NamedIndividual ;
+    ssso:has ssso:TL-High ;
+    ssso:influences ssso:SmartDoorLock ;
+    ssso:is ssso:Template ;
+    ssso:isProvidedBy ssso:SmartDoorLock .
+
+ssso:Unexpected_Door_Open_1327502c-522b-413e-9bc9-ca3ee8b0ddb8 a ssso:Threat ;
+    ssso:has ssso:TL-High ;
+    ssso:is ssso:Active ;
+    ssso:isProvidedBy ssso:SmartDoorLock .
+
+ssso:Unexpected_Occupancy a ssso:Threat,
+        owl:NamedIndividual ;
+    ssso:has ssso:TL-High ;
+    ssso:is ssso:Template .
+
+ssso:has a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:equivalentProperty ssso:is .
+
+ssso:influences a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ssso:isInfluencedBy a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ssso:isProvidedBy a owl:ObjectProperty .
+
+ssso:isRequiredBy a owl:ObjectProperty .
+
+ssso:provides a owl:ObjectProperty .
+
+ssso:requires a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ssso:typeOf a rdfs:Datatype .
+
+<http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10001> a ssso:UID,
+        owl:NamedIndividual .
+
+<http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10002> a ssso:UID,
+        owl:NamedIndividual .
+
+<http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10003> a ssso:UID,
+        owl:NamedIndividual .
+
+<http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10004> a ssso:UID,
+        owl:NamedIndividual .
+
+<http://www.semanticweb.org/linch/ontologies/2018/11/ssso#10005> a ssso:UID,
+        owl:NamedIndividual .
+
+ssso:Active a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:CaptureVideo a ssso:Data,
+        ssso:Sense,
+        owl:NamedIndividual ;
+    ssso:is ssso:Suspended ;
+    ssso:requires ssso:SL-4 .
+
+ssso:CloseDoor a ssso:Control,
+        owl:NamedIndividual ;
+    ssso:requires ssso:SL-1 .
+
+ssso:Disable a owl:Class ;
+    rdfs:subClassOf ssso:Action .
+
+ssso:Fingerprint_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:provides ssso:SL-2 .
+
+ssso:Group a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:HVAC a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:Light_Control a ssso:Control,
+        owl:NamedIndividual ;
+    ssso:requires ssso:SL-1 .
+
+ssso:Lighting a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:Lock a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:OpenDoor a ssso:Control,
+        owl:NamedIndividual ;
+    ssso:requires ssso:SL-4 .
+
+ssso:Room_Temperature_Control a ssso:Control,
+        owl:NamedIndividual ;
+    ssso:requires ssso:SL-1 .
+
+ssso:SL-3 a ssso:SecurityLevel,
+        owl:NamedIndividual .
+
+ssso:ShareData a ssso:Data,
+        owl:NamedIndividual ;
+    ssso:is ssso:Suspended ;
+    ssso:requires ssso:SL-4 .
+
+ssso:StoreData a ssso:Data,
+        owl:NamedIndividual ;
+    ssso:is ssso:Suspended ;
+    ssso:requires ssso:SL-2 .
+
+ssso:TL-Mid a ssso:ThreatLevel,
+        owl:NamedIndividual .
+
+ssso:is a owl:ObjectProperty ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+ssso:Event a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:Iris_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:SL-4 .
+
+ssso:Occupancy_Detection a ssso:Sense,
+        owl:NamedIndividual .
+
+ssso:PlayVideo a ssso:Data,
+        owl:NamedIndividual ;
+    ssso:is ssso:Suspended ;
+    ssso:requires ssso:SL-2 .
+
+ssso:Policy a owl:Class .
+
+ssso:Preference a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:Record a ssso:Data,
+        ssso:Sense,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled,
+        ssso:Suspended ;
+    ssso:requires ssso:SL-4 .
+
+ssso:Router a ssso:Network,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled .
+
+ssso:Voice_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:provides ssso:SL-2 .
+
+ssso:Action a owl:Class ;
+    rdfs:subClassOf ssso:Event .
+
+ssso:Network a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:Password_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:provides ssso:SL-1,
+        ssso:SL-2 .
+
+ssso:PlayAudio a ssso:Data,
+        owl:NamedIndividual ;
+    ssso:is ssso:Suspended ;
+    ssso:requires ssso:SL-2 .
+
+ssso:SL-0 a ssso:SecurityLevel,
+        owl:NamedIndividual .
+
+ssso:Sense a owl:Class ;
+    rdfs:subClassOf ssso:Service .
+
+ssso:SmartDoorLock a ssso:Lock,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:CloseDoor,
+        ssso:Face_Authentication,
+        ssso:Fingerprint_Authentication,
+        ssso:Iris_Authentication,
+        ssso:NFC_Authentication,
+        ssso:OpenDoor,
+        ssso:Password_Authentication,
+        ssso:Voice_Authentication .
+
+ssso:AV a owl:Class ;
+    rdfs:subClassOf ssso:Equipment .
+
+ssso:Control a owl:Class ;
+    rdfs:subClassOf ssso:Service .
+
+ssso:Face_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:provides ssso:SL-3 .
+
+ssso:NFC_Authentication a ssso:Authentication,
+        owl:NamedIndividual ;
+    ssso:provides ssso:SL-1,
+        ssso:SL-2 .
+
+ssso:Service a owl:Class .
+
+ssso:SmartBoard a ssso:AV,
+        owl:NamedIndividual ;
+    ssso:is ssso:Enabled ;
+    ssso:provides ssso:Password_Authentication,
+        ssso:PlayAudio,
+        ssso:PlayVideo,
+        ssso:Record .
+
+ssso:TL-High a ssso:ThreatLevel,
+        owl:NamedIndividual .
+
+ssso:Template a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:ThreatLevel a owl:Class ;
+    rdfs:subClassOf ssso:Policy .
+
+ssso:BoardofDirectors a ssso:Group,
+        owl:NamedIndividual .
+
+ssso:SecurityLevel a owl:Class ;
+    rdfs:subClassOf ssso:Policy .
+
+ssso:Threat a owl:Class ;
+    rdfs:subClassOf ssso:Event .
+
+ssso:UID a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:User a owl:Class .
+
+ssso:Data a owl:Class ;
+    rdfs:subClassOf ssso:Service .
+
+ssso:SL-1 a ssso:SecurityLevel,
+        owl:NamedIndividual .
+
+ssso:Suspended a ssso:Status,
+        owl:NamedIndividual .
+
+ssso:Authentication a owl:Class ;
+    rdfs:subClassOf ssso:Service .
+
+ssso:Equipment a owl:Class .
+
+ssso:SL-2 a ssso:SecurityLevel,
+        owl:NamedIndividual .
+
+ssso:SL-4 a ssso:SecurityLevel,
+        owl:NamedIndividual .
+
+ssso:Status a owl:Class ;
+    rdfs:subClassOf ssso:Context .
+
+ssso:Context a owl:Class .
+
+ssso:Enabled a ssso:Status,
+        owl:NamedIndividual .
+
